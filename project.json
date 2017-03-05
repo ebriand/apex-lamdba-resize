@@ -2,14 +2,9 @@
   "name": "ebriand-serverless-resize",
   "description": "serverless resize",
   "memory": 128,
-  "timeout": 10,
-  "role": "arn:aws:iam::682417792030:role/ebriand-serverless-resize_lambda_function",
+  "timeout": 5,
+  "role": "arn:aws:iam::682417792030:role/ebriand-serverless-resize",
   "runtime": "nodejs4.3",
-  "handler": "lib.default",
-  "hooks": {
-    "build": "../../node_modules/.bin/webpack --config ../../webpack.config.babel.js --bail",
-    "clean": "rm -fr lib"
-  },
   "environment": {
     "BUCKET": "zenika-serverless-thumbnail"
   }
