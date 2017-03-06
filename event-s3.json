@@ -3,12 +3,12 @@
     {
       "s3": {
         "object": {
-          "key": "2017-03_affiche_docker_birthday.png",
+          "key": "2017-03_affiche_docker_birthday.png"
         },
         "bucket": {
-          "name": "zenika-serverless-origin",
+          "name": "zenika-serverless-origin"
         }
-      },
+      }
     }
   ]
 }
