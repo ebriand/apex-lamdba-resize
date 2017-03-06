@@ -1,6 +1,5 @@
 'use strict';
 
-var util = require('util');
 var fs = require('fs');
 var im = require('imagemagick');
 var AWS = require('aws-sdk');
@@ -19,7 +18,7 @@ function resize(srcBucket, srcKey, dstBucket, dstKey, image, callback) {
         .then(function() {
             console.log('Successfully resized ' + srcBucket + '/' + srcKey + ' and uploaded to ' + dstBucket + '/' + dstKey);
             callback(null, 'Successfully resized ' + srcBucket + '/' + srcKey + ' and uploaded to ' + dstBucket + '/' + dstKey);
-        })
+        });
     });
 
 }
@@ -33,4 +32,4 @@ exports.handle = function(event, context, callback) {
   .then(function(response) {
     resize(srcBucket, srcKey, dstBucket, srcKey, response.Body, callback);
   });
-}
+};

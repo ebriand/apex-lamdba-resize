@@ -6,6 +6,7 @@
   "role": "arn:aws:iam::682417792030:role/ebriand-serverless-resize",
   "runtime": "nodejs4.3",
   "environment": {
-    "BUCKET": "zenika-serverless-thumbnail"
+    "BUCKET": "zenika-serverless-thumbnail",
+    "FIREBASE": "https://gallery-ec238.firebaseio.com"
   }
 }
