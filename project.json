@@ -1,12 +1,5 @@
 {
-  "name": "ebriand-serverless-resize",
-  "description": "serverless resize",
-  "memory": 128,
-  "timeout": 5,
-  "role": "arn:aws:iam::682417792030:role/ebriand-serverless-resize",
-  "runtime": "nodejs4.3",
-  "environment": {
-    "BUCKET": "zenika-serverless-thumbnail",
-    "FIREBASE": "https://gallery-ec238.firebaseio.com"
-  }
+  "name": "ebriand-serverless",
+  "description": "serverless talk",
+  "runtime": "nodejs4.3"
 }

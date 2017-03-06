@@ -1,0 +1,8 @@
+{
+  "name": "on-image-deleted",
+  "role": "arn:aws:iam::682417792030:role/ebriand-serverless-resize",
+  "timeout": 5,
+  "environment": {
+    "BUCKET": "zenika-serverless-thumbnail"
+  }
+}

@@ -24,6 +24,9 @@ function resize(srcBucket, srcKey, dstBucket, dstKey, image, callback) {
 }
 
 exports.handle = function(event, context, callback) {
+  if (event.Records[0].eventName !== 'ObjectCreated:Put') {
+    throw 'Eventname is not ObjectCreated:Put but ' + event.Records[0].eventName;
+  }
   var srcBucket = event.Records[0].s3.bucket.name;
   var srcKey    = event.Records[0].s3.object.key;
   var dstBucket = process.env.BUCKET;

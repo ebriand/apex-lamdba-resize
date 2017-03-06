@@ -1,0 +1,15 @@
+{
+  "Records": [
+    {
+      "s3": {
+        "object": {
+          "key": "2017-03_affiche_docker_birthday.png"
+        },
+        "bucket": {
+          "name": "zenika-serverless-origin"
+        }
+      },
+      "eventName": "ObjectRemoved:Delete"
+    }
+  ]
+}
