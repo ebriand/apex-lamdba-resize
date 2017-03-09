@@ -20,7 +20,11 @@ function resize(srcBucket, srcKey, dstBucket, dstKey, image, callback) {
             callback(null, 'Successfully resized ' + srcBucket + '/' + srcKey + ' and uploaded to ' + dstBucket + '/' + dstKey);
         });
     });
+}
 
+function getS3Key(srcKey) {
+  var s3Key = srcKey.replace(/\+/g, ' ');
+  return decodeURIComponent(s3Key);
 }
 
 exports.handle = function(event, context, callback) {
@@ -28,11 +32,14 @@ exports.handle = function(event, context, callback) {
     throw 'Eventname is not ObjectCreated:Put but ' + event.Records[0].eventName;
   }
   var srcBucket = event.Records[0].s3.bucket.name;
-  var srcKey    = event.Records[0].s3.object.key;
+  var srcKey    = getS3Key(event.Records[0].s3.object.key);
   var dstBucket = process.env.BUCKET;
 
   S3.getObject({ Bucket: srcBucket, Key: srcKey }).promise()
   .then(function(response) {
     resize(srcBucket, srcKey, dstBucket, srcKey, response.Body, callback);
+  })
+  .catch(function(error) {
+    callback(error);
   });
 };
